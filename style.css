@@ -1,0 +1,48 @@
+.container{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+
+}
+header{
+    background-color: #c7e5ff;
+}
+.main-header {
+    background-color: #bfd4ff;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+.bg{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+}
+.jumbotron {
+    text-align: center;
+    padding: 40px 10px;
+    margin: 100px auto 20px;
+    color: #ffb1a7;
+
+}
+.jumbotron h2 {
+    font-size: 2rem;
+}
+.jumbotron h1 {
+    font-size: 3rem;
+}
