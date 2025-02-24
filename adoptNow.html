@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/f90068558c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Pawara_adopt</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="assets/images/pawara.png" alt="PAWARA ADOPT">
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Beranda</a>
+            <a href="adopt.html"><b>Adopsi Anjing</b></a>
+            <a href="mine.html">Kepemilikan Saya</a>
+            <a href="about.html">Tentang Kami</a>
+        </div>
+        <div class="nav-buttons">
+            <a href="#" class="btn btn-outline">Daftar Akun</a>
+            <a href="#" class="btn btn-primary">Login</a>
+        </div>
+    </nav><br><br><br><br>
+
+    <div class="container">
+        <form id="adoptionForm">
+            <h1>Lengkapi Persyaratan</h1>
+            <p class="subtitle">Untuk melanjutkan proses adopsi Milo, harap unggah dokumen berikut:</p>
+
+            <div class="form-section">
+                <h2>Data Pribadi</h2>
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap</label>
+                    <input type="text" id="nama" name="nama" required placeholder="Masukkan nama lengkap">
+                </div>
+
+                <div class="form-group">
+                    <label for="alamat">Alamat Lengkap</label>
+                    <textarea id="alamat" name="alamat" required placeholder="Masukkan alamat lengkap"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="telepon">Nomor Telepon</label>
+                    <input type="tel" id="telepon" name="telepon" required placeholder="Masukkan nomor telepon">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="Masukkan email">
+                </div>
+
+                <div class="form-group">
+                    <label for="status">Status Tempat Tinggal</label>
+                    <input type="text" id="status" name="status" required placeholder="Masukkan status tempat tinggal">
+                </div>
+
+                <div class="form-group">
+                    <label for="penghasilan">Penghasilan Perbulan</label>
+                    <select id="penghasilan" name="penghasilan" required>
+                        <option value="">Pilih penghasilan</option>
+                        <option value="1">Rp 1.000.000,00 - Rp 2.000.000,00</option>
+                        <option value="2">Rp 2.000.000,00 - Rp 3.000.000,00</option>
+                        <option value="3">Rp 3.000.000,00 - Rp 4.000.000,00</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Dokumen Pendukung</h2>
+                <div class="form-group">
+                    <label for="alasan">Alasan Mengadopsi</label>
+                    <textarea id="alasan" name="alasan" required placeholder="Berikan alasanmu mengadopsi"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>KTP/Paspor (Format: JPG, PNG, atau PDF, max 2MB)</label>
+                    <div class="upload-box" id="ktpUploadBox">
+                        <input type="file" class="file-input" id="ktpFile" accept=".jpg,.jpeg,.png,.pdf" data-max-size="2">
+                        <div class="upload-icon">📄</div>
+                        <p>Unggah Dokumen</p>
+                        <div class="file-info">Belum ada file dipilih</div>
+                        <div class="error-message"></div>
+                        <div class="progress-bar">
+                            <div class="progress"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Surat Pernyataan Kesediaan Merawat</label>
+                    <div class="upload-box" id="suratUploadBox">
+                        <input type="file" class="file-input" id="suratFile" accept=".jpg,.jpeg,.png,.pdf" data-max-size="2">
+                        <div class="upload-icon">📄</div>
+                        <p>Unggah Dokumen</p>
+                        <div class="file-info">Belum ada file dipilih</div>
+                        <div class="error-message"></div>
+                        <div class="progress-bar">
+                            <div class="progress"></div>
+                        </div>
+                    </div>
+                    <p class="helper-text">Formulir akan diberikan setelah proses verifikasi awal</p>
+                </div>
+
+                <div class="form-group">
+                    <label>Bukti Penghasilan Perbulan</label>
+                    <div class="upload-box" id="penghasilanUploadBox">
+                        <input type="file" class="file-input" id="penghasilanFile" accept=".jpg,.jpeg,.png,.pdf" data-max-size="2">
+                        <div class="upload-icon">📄</div>
+                        <p>Unggah Dokumen</p>
+                        <div class="file-info">Belum ada file dipilih</div>
+                        <div class="error-message"></div>
+                        <div class="progress-bar">
+                            <div class="progress"></div>
+                        </div>
+                    </div>
+                    <p class="helper-text">Slip gaji atau rekening koran 3 bulan terakhir</p>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button type="button" class="btn-secondary" id="cancelButton">Batalkan</button>
+                <button type="submit" class="btn-primary">Adopsi Sekarang</button>
+            </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
