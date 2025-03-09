@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Pawara Adopt</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="assets/images/pawara.png" alt="PAWARA ADOPT">
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Beranda</a>
+            <a href="adopt.html">Adopsi Anjing</a>
+            <a href="mine.html">Kepemilikan Saya</a>
+            <a href="about.html">Tentang Kami</a>
+            <a href="artikel.html">Artikel</a>
+        </div>
+    </nav><br><br><br><br>
+
+    <main>
+        <section class="auth-section">
+            <div class="container2">
+                <div class="auth-container">
+                    <h1>Login</h1>
+                    <p class="auth-description">Masuk ke akun Anda untuk mengakses fitur lengkap Pawara Adopt</p>
+                    
+                    <form id="loginForm" class="auth-form">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        
+                        <div class="form-options">
+                            <div class="remember-me">
+                                <input type="checkbox" id="remember" name="remember">
+                                <label for="remember">Ingat saya</label>
+                            </div>
+                            <a href="reset-password.html" class="forgot-password">Lupa password?</a>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-full">Login</button>
+                    </form>
+                    
+                    <div class="auth-separator">
+                        <span>Atau</span>
+                    </div>
+                    
+                    <div class="social-login">
+                        <button class="btn btn-social btn-google">
+                            <img src="google-icon.png" alt="Google">
+                            Login dengan Google
+                        </button>
+                        <button class="btn btn-social btn-facebook">
+                            <img src="facebook-icon.png" alt="Facebook">
+                            Login dengan Facebook
+                        </button>
+                    </div>
+                    
+                    <p class="auth-redirect">
+                        Belum memiliki akun? <a href="daftar.html">Daftar sekarang</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Akun - Pawara Adopt</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="assets/images/pawara.png" alt="PAWARA ADOPT">
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Beranda</a>
+            <a href="adopt.html">Adopsi Anjing</a>
+            <a href="mine.html">Kepemilikan Saya</a>
+            <a href="about.html">Tentang Kami</a>
+            <a href="artikel.html">Artikel</a>
+        </div>
+    </nav><br><br><br><br>
+
+    <main>
+        <section class="auth-section">
+            <div class="container2">
+                <div class="auth-container">
+                    <h1>Daftar Akun</h1>
+                    <p class="auth-description">Buat akun untuk mulai mengadopsi dan memberi kesempatan baru</p>
+                    
+                    <form id="registerForm" class="auth-form">
+                        <div class="form-group">
+                            <label for="nama">Nama Lengkap</label>
+                            <input type="text" id="nama" name="nama" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="noTelp">Nomor Telepon</label>
+                            <input type="tel" id="noTelp" name="noTelp" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required>
+                            <small>Minimal 8 karakter, kombinasi huruf dan angka</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="confirmPassword">Konfirmasi Password</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required>
+                        </div>
+                        
+                        <div class="form-options">
+                            <div class="terms-check">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                <label for="terms">Saya setuju dengan <a href="#">Syarat & Ketentuan</a> dan <a href="#">Kebijakan Privasi</a></label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-full">Daftar Sekarang</button>
+                    </form>
+                    
+                    <div class="auth-separator">
+                        <span>Atau</span>
+                    </div>
+                    
+                    <div class="social-login">
+                        <button class="btn btn-social btn-google">
+                            <img src="google-icon.png" alt="Google">
+                            Daftar dengan Google
+                        </button>
+                        <button class="btn btn-social btn-facebook">
+                            <img src="facebook-icon.png" alt="Facebook">
+                            Daftar dengan Facebook
+                        </button>
+                    </div>
+                    
+                    <p class="auth-redirect">
+                        Sudah memiliki akun? <a href="login.html">Login di sini</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

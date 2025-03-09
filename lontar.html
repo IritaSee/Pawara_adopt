@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/f90068558c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Lontar - Pawara Adopt</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background-color: white;
+            padding: 15px 50px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 40px;
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+            z-index: 2;
+        }
+        
+        .nav-item {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .search-container {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 5px 15px;
+        }
+        
+        .search-container input {
+            border: none;
+            outline: none;
+            padding: 5px;
+            width: 200px;
+        }
+        
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            border-radius: 10px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .article-header {
+            margin-bottom: 30px;
+        }
+        
+        .article-title {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .article-meta {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .article-content {
+            line-height: 1.8;
+            color: #444;
+        }
+        
+        .article-content h2 {
+            margin: 30px 0 15px;
+            color: #333;
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .article-content li {
+            margin-bottom: 10px;
+        }
+        
+        .article-tags {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .article-tag {
+            background-color: #f0f0f0;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #555;
+            text-decoration: none;
+        }
+        
+        .related-articles {
+            margin-top: 50px;
+        }
+        
+        .related-articles h3 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .related-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .related-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .related-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        
+        .related-content {
+            padding: 15px;
+        }
+        
+        .related-title {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .related-title a {
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .related-meta {
+            color: #777;
+            font-size: 12px;
+        }
+
+        .article-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+            }
+            
+            nav {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+                z-index: 2;
+            }
+            
+            .search-container {
+                margin-top: 15px;
+            }
+            
+            main {
+                padding: 15px;
+            }
+            
+            .article-title {
+                font-size: 24px;
+            }
+            
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="assets/images/pawara.png" alt="PAWARA ADOPT">
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Beranda</a>
+            <a href="adopt.html">Adopsi Anjing</a>
+            <a href="mine.html">Kepemilikan Saya</a>
+            <a href="about.html">Tentang Kami</a>
+            <a href="artikel.html"><b>Artikel</b></a>
+        </div>
+        <div class="nav-buttons">
+            <a href="daftar.html" class="btn btn-outline">Daftar Akun</a>
+            <a href="login.html" class="btn btn-primary">Login</a>
+        </div>
+    </nav><br><br><br><br>
+
+    <main class="m3">
+        <article>
+            <div class="article-header">
+                <h3 class="article-title">Panduan Tradisional Bali untuk 
+                    Memahami Karakter Hewan Peliharaan
+                </h3>
+                <p class="article-meta">Wira, Bhanu, dan Bayu - Pawara Team</p>
+                <p class="article-meta">9 Maret 2025</p>
+            </div>
+            
+            <img src="assets/images/jing.jpg" alt="asu" class="article-image">
+            
+            <div class="article-content">
+                <p>Lontar Asu merupakan sebuah naskah tradisional Bali yang secara khusus membahas tentang anjing. Lebih dari sekadar catatan biasa, lontar ini adalah kompilasi pengetahuan mendalam mengenai berbagai aspek yang terkait dengan anjing, terutama dalam konteks budaya dan kepercayaan masyarakat Bali. Lontar Asu berfungsi sebagai panduan untuk memahami karakteristik, sifat, dan peran yang dimainkan oleh anjing dalam kehidupan sehari-hari masyarakat Bali. Di dalamnya, terinci deskripsi mengenai beragam jenis anjing, masing-masing dengan ciri fisik dan temperamen yang unik. Naskah ini juga mencatat sekitar 5 sifat anjing yang berbeda. Selain deskripsi karakteristik, Lontar Asu juga memuat metode tradisional untuk mengukur dan mengklasifikasikan sifat-sifat anjing berdasarkan ukuran fisiknya.</p>               
+                <p>Penentuan sifat anjing dapat diukur dengan langkah langkah seperti berikut: (1) Pertama-tama, ukurlah panjang dari ujung hidung anjing (moncong) hingga ujung ekor. Ukurlah seakurat mungkin. Kita dapat mempergunakan lidi yang lentur, dan alat ukur lainnya. (2) Kemudian, kita ukur ujung hidung (moncong) hingga titik di antara mata anjing. Lalu dengan ukuran tersebut, bagilah ukuran dari moncong hingga ujung ekor dengan ukuran tadi. (3) Bagi ukuran tersebut dengan mengulang urutan Paksa, Jaya, Guna, Ketek dan Kiul, lalu liat mana yang menjadi urutan terakhir dari pembagian tersebut. </p>
+                <p>Setelah melakukan pengukuran yang tepat terhadap tubuh anjing, seperti panjang moncong hingga ekor, serta jarak antara mata hingga moncong, langkah selanjutnya adalah mengklasifikasikan sifat anjing berdasarkan hasil pembagian ukuran tersebut. Pembagian ini kemudian dihubungkan dengan lima sifat utama yang ada dalam Lontar Asu, yaitu Paksa, Jaya, Guna, Ketek, dan Kiul. Masing-masing sifat ini menggambarkan karakteristik dan perilaku yang khas dari anjing sesuai dengan pengukuran tubuhnya.</p>
+                <h2>Paksa</h2>
+                <p>Jika jatuh pada urutan Paksa, Anjing dengan sifat ini cenderung galak dan agresif. Mereka setia pada pemilik dan menjaga rumah, namun tidak cocok diajak bergaul dengan orang asing karena dapat berbahaya. Pemilik disarankan untuk sering bersosialisasi dengan anjing ini agar lebih mengenali orang asing dengan baik.</p>
+                <h2>Jaya</h2>
+                <p>Jika jatuh di Jaya, Anjing berkarakter seperti penguasa, cenderung manja dan sering merengek pada pemiliknya. Mereka lebih cocok sebagai hewan peliharaan rumahan yang sering berinteraksi dengan pemiliknya, bukan untuk penjaga rumah. Anjing ini setia menemani kegiatan pemilik, namun sulit dilatih dan membutuhkan pendekatan yang baik.</p>
+                <h2>Guna</h2>
+                <p>Jika jatuh di Guna, anjing akan berkarakter penurut dan sangat mudah untuk dilatih. Apapun tujuan untuk memelihara anjing, usahakan untuk memelihara anjing tipe ini karena anjing akan sangat mudah untuk dilatih. Sesuai dengan namanya, Guna, anjing akan sangat memberikan manfaat bagi pemiliknya. </p>
+                <h2>Ketek</h2>
+                <p>Jika jatuh di Guna, anjing akan berkarakter penurut dan sangat mudah untuk dilatih. Apapun tujuan untuk memelihara anjing, usahakan untuk memelihara anjing tipe ini karena anjing akan sangat mudah untuk dilatih. Sesuai dengan namanya, Guna, anjing akan sangat memberikan manfaat bagi pemiliknya. </p>
+                <h2>Kiul</h2>
+                <p>   Terakhir, Jika jatuh di Kiul, Anjing dengan sifat pemalas, lebih suka makan dan tidur. Mereka cocok untuk pemilik yang sibuk dan tidak punya banyak waktu untuk beraktivitas bersama anjing. Anjing ini lebih cocok sebagai penunggu rumah, meskipun tidak bisa diandalkan untuk tugas penjagaan.</p>
+            </div>
+        </article>
+    </main>
+</body>
+</html>

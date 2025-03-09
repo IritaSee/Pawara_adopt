@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="../static/css/style.css">
-    <title>Pawara_adopt</title>
+    <title>Pawara Adopt</title>
 </head>
 <body>
     <nav>
@@ -21,23 +21,30 @@
             <a href="adopt.html">Adopsi Anjing</a>
             <a href="mine.html">Kepemilikan Saya</a>
             <a href="about.html">Tentang Kami</a>
+            <a href="artikel.html">Artikel</a>
         </div>
         <div class="nav-buttons">
-            <a href="#" class="btn btn-outline">Daftar Akun</a>
-            <a href="#" class="btn btn-primary">Login</a>
+            <a href="daftar.html" class="btn btn-outline">Daftar Akun</a>
+            <a href="login.html" class="btn btn-primary">Login</a>
         </div>
     </nav><br><br><br><br>
 
     <main>
         <div class="hero">
             <div class="hero-image">
-                <img src="/assets/images/jumbotron.png" alt="Anjing yang menunggu adopsi">
+                <img src="/assets/images/asu.jpg" alt="Anjing yang menunggu adopsi">
             </div>
             <div class="hero-content">
                 <h1>Satu Rumah, Satu Kesempatan Baru</h1>
                 <p>Di balik tatapan sendu, ada harapan yang menanti. Anjing jalanan tak butuh banyak—hanya kasih sayang dan tempat yang aman.</p>
                 <p>Jadilah awal baru bagi mereka. Bukan sekadar mengadopsi, tapi menyelamatkan dan menciptakan ikatan seumur hidup.</p>
-                <a href="#" class="cta-button">Laporkan Anjing Jalanan</a>
+                <br><br>
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="Search by invoice number, name, amount...">
+                    <button class="filter-button">
+                        <span>Filter</span>
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -66,7 +73,7 @@
 
         <div class="ai-section">
             <div class="ai-content">
-                <h2>AI Pet Care: Perawatan Anjing Lebih Cerdas</h2>
+                <h2>AI Pet Care: Perawatan Anjing Lebih Cerdas</h2><br>
                 <p>Teknologi AI yang membantu pemilik dan penampungan dalam merawat anjing secara otomatis. Dari pemantauan kesehatan hingga kebutuhan nutrisi, semua bisa dilakukan lebih mudah dan efisien!</p>
             </div>
             <div class="ai-image">
@@ -94,7 +101,7 @@
                     <h3 class="dog-name">Nama Asu</h3>
                     <p class="dog-description">Latbel Asu</p>
                     <div class="card-buttons">
-                        <a href="#" class="btn-secondary">Baca Selengkapnya</a>
+                        <a href="desc.html" class="btn-secondary">Baca Selengkapnya</a>
                         <a href="adoptNow.html" class="btn-primary">Adopsi Sekarang</a>
                     </div>
                 </div>
@@ -105,7 +112,7 @@
                     <h3 class="dog-name">Nama Asu</h3>
                     <p class="dog-description">Latbel Asu</p>
                     <div class="card-buttons">
-                        <a href="#" class="btn-secondary">Baca Selengkapnya</a>
+                        <a href="desc.html" class="btn-secondary">Baca Selengkapnya</a>
                         <a href="adoptNow.html" class="btn-primary">Adopsi Sekarang</a>
                     </div>
                 </div>
@@ -116,7 +123,7 @@
                     <h3 class="dog-name">Nama Asu</h3>
                     <p class="dog-description">Latbel Asu</p>
                     <div class="card-buttons">
-                        <a href="#" class="btn-secondary">Baca Selengkapnya</a>
+                        <a href="desc.html" class="btn-secondary">Baca Selengkapnya</a>
                         <a href="adoptNow.html" class="btn-primary">Adopsi Sekarang</a>
                     </div>
                 </div>
@@ -127,7 +134,7 @@
                     <h3 class="dog-name">Nama Asu</h3>
                     <p class="dog-description">Latbel Asu</p>
                     <div class="card-buttons">
-                        <a href="#" class="btn-secondary">Baca Selengkapnya</a>
+                        <a href="desc.html" class="btn-secondary">Baca Selengkapnya</a>
                         <a href="adoptNow.html" class="btn-primary">Adopsi Sekarang</a>
                     </div>
                 </div>
@@ -138,7 +145,7 @@
                     <h3 class="dog-name">Nama Asu</h3>
                     <p class="dog-description">Latbel Asu</p>
                     <div class="card-buttons">
-                        <a href="#" class="btn-secondary">Baca Selengkapnya</a>
+                        <a href="desc.html" class="btn-secondary">Baca Selengkapnya</a>
                         <a href="adoptNow.html" class="btn-primary">Adopsi Sekarang</a>
                     </div>
                 </div>
@@ -149,7 +156,7 @@
                     <h3 class="dog-name">Nama Asu</h3>
                     <p class="dog-description">Latbel Asu</p>
                     <div class="card-buttons">
-                        <a href="#" class="btn-secondary">Baca Selengkapnya</a>
+                        <a href="desc.html" class="btn-secondary">Baca Selengkapnya</a>
                         <a href="adoptNow.html" class="btn-primary">Adopsi Sekarang</a>
                     </div>
                 </div>
@@ -164,5 +171,42 @@
                 </svg>
             </a>
         </div>
+        <button class="chat-popup-trigger" onclick="toggleChatPopup()">
+            <img src="assets/images/icon.png" alt="Chat Icon">
+        </button>
+    
+    <div id="chatPopupContainer" class="chat-popup-container">
+        <div class="chat-popup">
+            <div class="chat-header">
+                <div class="chat-header-title">
+                    <strong>Tanya AI PAWARA</strong>
+                    <div style="font-size: 12px; color: #a0a0a0;">Online</div>
+                </div>
+                <button class="close-button" onclick="toggleChatPopup()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <div class="chat-message ai-message">
+                    Halo! Saya Pawara, asisten AI yang siap membantu Anda dengan informasi tentang anjing jalanan dan bagaimana membantu mereka. Ada yang bisa saya bantu?
+                </div>
+                <div class="chat-message user-message">
+                    Bagaimana cara terbaik membantu anjing jalanan tanpa harus mengadopsi?
+                </div>
+                <div class="chat-message ai-message">
+                    Anda bisa membantu dengan memberikan makanan, mendukung shelter melalui donasi, menjadi relawan, atau menyebarkan informasi tentang adopsi untuk meningkatkan peluang mereka mendapatkan rumah.
+                </div>
+            </div>
+            
+            <div class="chat-input">
+                <input type="text" placeholder="Masukan pertanyaanmu" id="chatInput">
+                <button onclick="sendMessage()">➤</button>
+            </div>
+        </div>
+    </div>
+        <script src="script.js"></script>
 </body>
 </html>
