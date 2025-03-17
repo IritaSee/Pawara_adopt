@@ -24,8 +24,8 @@
             <a href="artikel.html">Artikel</a>
         </div>
         <div class="nav-buttons">
-            <a href="#" class="btn btn-outline">Daftar Akun</a>
-            <a href="#" class="btn btn-primary">Login</a>
+            <a href="daftar.html" class="btn btn-outline">Daftar Akun</a>
+            <a href="login.html" class="btn btn-primary">Login</a>
         </div>
     </nav><br><br><br><br>
 
@@ -228,52 +228,6 @@
         </div>
     </div>
 </div>
-<script>
-    function toggleChatPopup() {
-        const popup = document.getElementById('chatPopupContainer');
-        if (popup.style.display === 'block') {
-            popup.style.display = 'none';
-        } else {
-            popup.style.display = 'block';
-        }
-    }
-
-    function sendMessage() {
-        const input = document.getElementById('chatInput');
-        const message = input.value.trim();
-        
-        if (message !== '') {
-            const chatBody = document.getElementById('chatBody');
-            
-            // Create user message
-            const userMsg = document.createElement('div');
-            userMsg.className = 'chat-message user-message';
-            userMsg.textContent = message;
-            chatBody.appendChild(userMsg);
-            
-            // Clear input
-            input.value = '';
-            
-            // Auto scroll to bottom
-            chatBody.scrollTop = chatBody.scrollHeight;
-            
-            // Simulate AI response after a short delay
-            setTimeout(() => {
-                const aiMsg = document.createElement('div');
-                aiMsg.className = 'chat-message ai-message';
-                aiMsg.textContent = 'Terima kasih atas pertanyaan Anda. Saya, Pawara, akan membantu menjawabnya segera.';
-                chatBody.appendChild(aiMsg);
-                chatBody.scrollTop = chatBody.scrollHeight;
-            }, 1000);
-        }
-    }
-    
-    // Allow sending message with Enter key
-    document.getElementById('chatInput').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            sendMessage();
-        }
-    });
-</script>
+    <script src="script.js"></script>
 </body>
 </html>

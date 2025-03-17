@@ -9,9 +9,293 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="../static/css/style.css">
-    <title>Punya Saya - Pawara Adopt</title>
+    <title>Pawara Adopt</title>
+    <style>
+        :root {
+            --primary-color: #3949AB;
+            --secondary-color: #4051B5;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333;
+            --medium-gray: #666;
+            --white: #ffffff;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .btn-outline {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .chatbot-container {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .dog-selection {
+            flex: 1;
+            background: var(--white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .chat-window {
+            flex: 2;
+            background: var(--white);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .chat-header {
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .dog-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .dog-info h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        
+        .dog-info p {
+            margin: 0;
+            color: var(--medium-gray);
+            font-size: 0.9rem;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .message {
+            max-width: 70%;
+            padding: 0.8rem 1rem;
+            border-radius: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .dog-message {
+            background-color: var(--light-gray);
+            align-self: flex-start;
+            border-top-left-radius: 0;
+        }
+        
+        .user-message {
+            background-color: var(--primary-color);
+            color: var(--white);
+            align-self: flex-end;
+            border-top-right-radius: 0;
+        }
+        
+        .chat-input {
+            padding: 1rem;
+            border-top: 1px solid var(--light-gray);
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 2rem;
+            outline: none;
+        }
+        
+        .send-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .dog-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .dog-card:hover {
+            background-color: var(--light-gray);
+        }
+        
+        .dog-card.active {
+            background-color: var(--light-gray);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .section-title {
+            margin-bottom: 1.5rem;
+            color: var(--dark-gray);
+            font-size: 1.5rem;
+        }
+        
+        .search-box {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-box {
+            padding: 2rem;
+            border-radius: 8px;
+            background: var(--white);
+            margin-bottom: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-title {
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        .feature-description {
+            color: var(--medium-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        /* Welcome Popup Styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .popup-content {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+        
+        .popup-overlay.active .popup-content {
+            transform: scale(1);
+        }
+        
+        .popup-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .popup-text {
+            line-height: 1.6;
+            color: var(--medium-gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        .popup-close {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .popup-close:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .dog-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+    </style>
 </head>
 <body>
+    <div class="popup-overlay" id="welcomePopup">
+        <div class="popup-content">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🐶</div>
+            <h2 class="popup-title">Selamat Datang di Chatbot Anjing AI</h2>
+            <p class="popup-text">Selamat datang di fitur chatbot anjing AI kami. Di sini Anda bisa berkomunikasi dengan representasi AI dari anjing-anjing yang telah kamu adopsi. Mengenal kepribadian dan cerita mereka adalah tempatnya!</p>
+            <button class="popup-close" id="closePopup">Mulai</button>
+        </div>
+    </div>
+
     <nav>
         <div class="logo">
             <img src="assets/images/pawara.png" alt="PAWARA ADOPT">
@@ -24,47 +308,270 @@
             <a href="artikel.html">Artikel</a>
         </div>
         <div class="nav-buttons">
-            <a href="#" class="btn btn-outline">Daftar Akun</a>
-            <a href="#" class="btn btn-primary">Login</a>
+            <a href="daftar.html" class="btn btn-outline">Daftar Akun</a>
+            <a href="login.html" class="btn btn-primary">Login</a>
         </div>
-    </nav><br><br><br><br>
+    </nav><br>
 
     <main>
-        <div class="search-section">
-            <p><b>Adopsi Milik Saya</b></p>
-            <div class="search-header">
-                <h2>Bantu Mereka Memiliki Hidup yang Layak</h2>
-                <div class="search-bar">
-                    <input type="text" class="search-input" placeholder="Search by invoice number, name, amount...">
-                    <button class="filter-button">
-                        <span>Filter</span>
+        <div class="container">
+            <div class="chatbot-container">
+                <div class="dog-selection">
+                    <h2 class="section-title">Pilih Anjing</h2>
+                    <input type="text" class="search-box" placeholder="Cari berdasarkan nama, jenis, umur...">
+                    
+                    <div class="dog-card active" data-dog="putih">
+                        <img src="/api/placeholder/50/50" alt="Putih" class="dog-avatar">
+                        <div>
+                            <h3>Putih</h3>
+                            <p>Anjing Kampung, 2 tahun</p>
+                    </div>
+                </div>
+                
+                <div class="dog-card" data-dog="max">
+                    <img src="/api/placeholder/50/50" alt="Max" class="dog-avatar">
+                    <div>
+                        <h3>Max</h3>
+                        <p>Golden Retriever, 3 tahun</p>
+                    </div>
+                </div>
+                
+                <div class="dog-card" data-dog="bella">
+                    <img src="/api/placeholder/50/50" alt="Bella" class="dog-avatar">
+                    <div>
+                        <h3>Bella</h3>
+                        <p>Siberian Husky, 1 tahun</p>
+                    </div>
+                </div>
+                
+                <div class="dog-card" data-dog="rocky">
+                    <img src="/api/placeholder/50/50" alt="Rocky" class="dog-avatar">
+                    <div>
+                        <h3>Rocky</h3>
+                        <p>Bulldog, 4 tahun</p>
+                    </div>
+                </div>
+                
+                <div class="dog-card" data-dog="luna">
+                    <img src="/api/placeholder/50/50" alt="Luna" class="dog-avatar">
+                    <div>
+                        <h3>Luna</h3>
+                        <p>Anjing Kampung, 1.5 tahun</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-window">
+                <div class="chat-header">
+                    <a href="desc.html">
+                    <img src="/api/placeholder/50/50" alt="Putih" class="dog-avatar" id="chatDogAvatar">
+                    <div class="dog-info">
+                        <h3 id="chatDogName">Putih</h3>
+                        <p id="chatDogInfo">Anjing Kampung, 2 tahun</p>
+                    </div>
+                    </a>
+                </div>
+                
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message dog-message">
+                        Halo! Nama saya Putih. Saya anjing kampung berusia 2 tahun yang sangat suka bermain dan dekat dengan manusia. Senang berkenalan denganmu! Bagaimana kabarmu hari ini?
+                    </div>
+                </div>
+                
+                <div class="chat-input">
+                    <input type="text" id="messageInput" placeholder="Ketik pesan Anda disini...">
+                    <button class="send-btn" id="sendButton">
+                        <i class="fas fa-paper-plane"></i>
                     </button>
                 </div>
             </div>
         </div>
 
-        <div class="dog-grid">
-            <div class="dog-card">
-                <img src="-" alt="Nama" class="dog-image">
-                <div class="dog-content">
-                    <h3 class="dog-name">Nama Asu</h3>
-                    <p class="dog-description">Latbel Asu</p>
-                    <div class="card-buttons">
-                        <a href="desc.html" class="btn-secondary">Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-            <div class="dog-card">
-                <img src="-" alt="Nama" class="dog-image">
-                <div class="dog-content">
-                    <h3 class="dog-name">Nama Asu</h3>
-                    <p class="dog-description">Latbel Asu</p>
-                    <div class="card-buttons">
-                        <a href="desc.html" class="btn-secondary">Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <script>
+        // Show welcome popup
+        document.addEventListener('DOMContentLoaded', function() {
+            const popup = document.getElementById('welcomePopup');
+            popup.classList.add('active');
+            
+            document.getElementById('closePopup').addEventListener('click', function() {
+                popup.classList.remove('active');
+            });
+        });
+        
+        // Chat functionality
+        const dogProfiles = {
+            putih: {
+                name: "Putih",
+                info: "Anjing Kampung, 2 tahun",
+                greeting: "Halo! Nama saya Putih. Saya anjing kampung berusia 2 tahun yang sangat suka bermain dan dekat dengan manusia. Senang berkenalan denganmu! Bagaimana kabarmu hari ini?"
+            },
+            max: {
+                name: "Max",
+                info: "Golden Retriever, 3 tahun",
+                greeting: "Halo teman baru! Saya Max, Golden Retriever yang penuh energi dan sangat ramah. Saya suka bermain bola dan berenang. Senang berkenalan denganmu!"
+            },
+            bella: {
+                name: "Bella",
+                info: "Siberian Husky, 1 tahun",
+                greeting: "Hai! Saya Bella, Husky berusia 1 tahun yang sangat aktif. Saya suka berlari dan bermain di luar ruangan. Saya mencari keluarga yang aktif seperti saya!"
+            },
+            rocky: {
+                name: "Rocky",
+                info: "Bulldog, 4 tahun",
+                greeting: "Halo! Saya Rocky, Bulldog berusia 4 tahun yang tenang dan penyayang. Saya lebih suka duduk santai dan menikmati waktu bersama manusia. Bagaimana harimu?"
+            },
+            luna: {
+                name: "Luna",
+                info: "Anjing Kampung, 1.5 tahun",
+                greeting: "Hai! Saya Luna, anjing kampung berusia 1.5 tahun. Saya sangat penuh kasih sayang dan suka bermain dengan anak-anak. Senang berkenalan denganmu!"
+            }
+        };
+        
+        // Dog selection functionality
+        const dogCards = document.querySelectorAll('.dog-card');
+        const chatMessages = document.getElementById('chatMessages');
+        const chatDogAvatar = document.getElementById('chatDogAvatar');
+        const chatDogName = document.getElementById('chatDogName');
+        const chatDogInfo = document.getElementById('chatDogInfo');
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+        
+        dogCards.forEach(card => {
+            card.addEventListener('click', function() {
+                // Remove active class from all cards
+                dogCards.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked card
+                this.classList.add('active');
+                
+                // Get dog data
+                const dogId = this.getAttribute('data-dog');
+                const dog = dogProfiles[dogId];
+                
+                // Update chat header
+                chatDogAvatar.src = this.querySelector('img').src;
+                chatDogName.textContent = dog.name;
+                chatDogInfo.textContent = dog.info;
+                
+                // Clear chat messages
+                chatMessages.innerHTML = '';
+                
+                // Add greeting message
+                const greetingMessage = document.createElement('div');
+                greetingMessage.classList.add('message', 'dog-message');
+                greetingMessage.textContent = dog.greeting;
+                chatMessages.appendChild(greetingMessage);
+            });
+        });
+        
+        // Send message functionality
+        function sendMessage() {
+            const message = messageInput.value.trim();
+            if (message !== '') {
+                // Add user message
+                const userMessageElement = document.createElement('div');
+                userMessageElement.classList.add('message', 'user-message');
+                userMessageElement.textContent = message;
+                chatMessages.appendChild(userMessageElement);
+                
+                // Clear input
+                messageInput.value = '';
+                
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Simulate dog response after delay
+                setTimeout(() => {
+                    generateDogResponse(message);
+                }, 1000);
+            }
+        }
+        
+        // Generate dog response based on user message
+        function generateDogResponse(userMessage) {
+            const activeDogCard = document.querySelector('.dog-card.active');
+            const dogId = activeDogCard.getAttribute('data-dog');
+            const dog = dogProfiles[dogId];
+            
+            let response = '';
+            
+            // Simple response logic based on keywords
+            userMessage = userMessage.toLowerCase();
+            
+            if (userMessage.includes('nama') || userMessage.includes('siapa')) {
+                response = `Nama saya ${dog.name}. Senang berkenalan denganmu!`;
+            } else if (userMessage.includes('umur') || userMessage.includes('usia')) {
+                response = `Usia saya ${dog.info.split(', ')[1]}. Masih cukup muda dan energik!`;
+            } else if (userMessage.includes('makanan') || userMessage.includes('makan')) {
+                response = `Saya suka makanan anjing biasa, tapi terkadang diberi makanan khusus oleh petugas penampungan untuk kesehatan saya.`;
+            } else if (userMessage.includes('main') || userMessage.includes('bermain')) {
+                if (dogId === 'max') {
+                    response = `Saya sangat suka bermain lempar bola dan berenang!`;
+                } else if (dogId === 'bella') {
+                    response = `Sebagai Husky, saya sangat suka berlari dan bermain di luar ruangan yang luas!`;
+                } else {
+                    response = `Saya suka bermain bola dan kejar-kejaran di taman.`;
+                }
+            } else if (userMessage.includes('cerita') || userMessage.includes('sejarah') || userMessage.includes('latar belakang')) {
+                if (dogId === 'putih') {
+                    response = `Saya ditemukan di pinggir jalan saat masih kecil. Seorang relawan Pawara menyelamatkan saya dan membawa saya ke penampungan. Sejak itu saya telah belajar berbagai perintah dasar dan sangat suka bergaul dengan anjing dan manusia lainnya.`;
+                } else if (dogId === 'max') {
+                    response = `Pemilik sebelumnya harus pindah ke luar negeri dan tidak bisa membawa saya. Saya sudah terlatih dengan baik dan sangat ramah dengan anak-anak.`;
+                } else if (dogId === 'bella') {
+                    response = `Saya diselamatkan dari peternak ilegal yang menjual anak-anak Husky. Tim Pawara menyelamatkan saya dan saudara-saudara saya. Mereka sekarang sudah memiliki keluarga baru, dan saya masih mencari keluarga yang tepat untuk saya.`;
+                } else if (dogId === 'rocky') {
+                    response = `Saya sudah berada di penampungan selama 1 tahun. Pemilik sebelumnya tidak bisa merawat saya karena masalah kesehatan. Saya anjing yang tenang dan tidak butuh banyak aktivitas fisik.`;
+                } else {
+                    response = `Saya ditemukan berkeliaran di pasar dengan kondisi kurus dan tidak terawat. Setelah dirawat oleh tim Pawara, kondisi saya semakin membaik dan siap untuk diadopsi.`;
+                }
+            } else if (userMessage.includes('adopsi') || userMessage.includes('proses')) {
+                response = `Untuk mengadopsi saya, Anda perlu mengisi formulir adopsi, melakukan wawancara dengan tim Pawara, dan jika disetujui, Anda bisa membawa saya pulang. Tim akan melakukan kunjungan tindak lanjut untuk memastikan saya beradaptasi dengan baik.`;
+            } else if (userMessage.includes('halo') || userMessage.includes('hai') || userMessage.includes('hi')) {
+                response = `Halo! Senang berbicara denganmu. Apa yang ingin kamu ketahui tentang saya?`;
+            } else if (userMessage.includes('terima kasih') || userMessage.includes('makasih')) {
+                response = `Sama-sama! Semoga kita bisa bertemu langsung suatu hari nanti. Guk guk! 🐾`;
+            } else {
+                response = `Maaf, saya tidak mengerti maksud Anda. Tanyakan tentang saya, kebiasaan saya, atau proses adopsi dan saya akan mencoba menjawabnya.`;
+            }
+            
+            // Create response element
+            const dogResponseElement = document.createElement('div');
+            dogResponseElement.classList.add('message', 'dog-message');
+            dogResponseElement.textContent = response;
+            chatMessages.appendChild(dogResponseElement);
+            
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        // Send message on button click
+        sendButton.addEventListener('click', sendMessage);
+        
+        // Send message on Enter key press
+        messageInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+        
+        // Search functionality
+        document.querySelector('.search-box').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            dogCards.forEach(card => {
+                const dogName = card.querySelector('h3').textContent.toLowerCase();
+                const dogInfo = card.querySelector('p').textContent.toLowerCase();
+                
+                if (dogName.includes(searchTerm) || dogInfo.includes(searchTerm)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+    </main>
+        
         <button class="chat-popup-trigger" onclick="toggleChatPopup()">
             <img src="assets/images/icon.png" alt="Chat Icon">
         </button>
@@ -101,52 +608,6 @@
             </div>
         </div>
     </div>
-    <script>
-        function toggleChatPopup() {
-            const popup = document.getElementById('chatPopupContainer');
-            if (popup.style.display === 'block') {
-                popup.style.display = 'none';
-            } else {
-                popup.style.display = 'block';
-            }
-        }
-
-        function sendMessage() {
-            const input = document.getElementById('chatInput');
-            const message = input.value.trim();
-            
-            if (message !== '') {
-                const chatBody = document.getElementById('chatBody');
-                
-                // Create user message
-                const userMsg = document.createElement('div');
-                userMsg.className = 'chat-message user-message';
-                userMsg.textContent = message;
-                chatBody.appendChild(userMsg);
-                
-                // Clear input
-                input.value = '';
-                
-                // Auto scroll to bottom
-                chatBody.scrollTop = chatBody.scrollHeight;
-                
-                // Simulate AI response after a short delay
-                setTimeout(() => {
-                    const aiMsg = document.createElement('div');
-                    aiMsg.className = 'chat-message ai-message';
-                    aiMsg.textContent = 'Terima kasih atas pertanyaan Anda. Saya, Pawara, akan membantu menjawabnya segera.';
-                    chatBody.appendChild(aiMsg);
-                    chatBody.scrollTop = chatBody.scrollHeight;
-                }, 1000);
-            }
-        }
-        
-        // Allow sending message with Enter key
-        document.getElementById('chatInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
-        });
-    </script>
+        <script src="script.js"></script>
 </body>
 </html>
