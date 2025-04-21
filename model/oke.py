@@ -21,40 +21,63 @@ except LookupError:
     nltk.download('wordnet')
     nltk.download('punkt')
 
-# Create sample dog data with more detailed descriptions
+# Create dog data from the provided descriptions
 dog_data = [
-    {"id": 1, "name": "Golden Retriever", "description": "Friendly, intelligent, and devoted. Golden Retrievers are excellent family companions with a gentle temperament and love for play. Great with children and other pets, they need regular exercise and grooming for their thick coats."},
-    {"id": 2, "name": "German Shepherd", "description": "Confident, courageous and smart. German Shepherds are working dogs excelling in roles from police to service work. They are loyal protectors with strong territorial instincts and need consistent training and mental stimulation."},
-    {"id": 3, "name": "Bulldog", "description": "Docile, willful, and friendly. Bulldogs are known for their loose-jointed, shuffling gait and massive, short-faced head. They're calm companions requiring minimal exercise but need special care for skin folds and sensitivity to heat."},
-    {"id": 4, "name": "Beagle", "description": "Curious, friendly, and merry. Beagles are scent hounds with great tracking instincts and energy. Perfect for active families, they love to explore but can be stubborn during training and have a tendency to howl."},
-    {"id": 5, "name": "Poodle", "description": "Intelligent, active, and elegant. Poodles come in three sizes (standard, miniature, toy) and excel in obedience training. They have hypoallergenic coats requiring professional grooming and are excellent for people with allergies."},
-    {"id": 6, "name": "Labrador Retriever", "description": "Outgoing, gentle, and eager to please. Labradors are athletic and excellent with families. They're versatile working dogs, great swimmers, and make perfect companions for outdoor activities, but need plenty of exercise to manage their high energy."},
-    {"id": 7, "name": "Siberian Husky", "description": "Mischievous, loyal, and outgoing. Huskies are built for cold weather and have high energy levels. Natural pack dogs who need vigorous daily exercise, they're known for their stunning ice-blue eyes and tendency to escape when bored."},
-    {"id": 8, "name": "Pug", "description": "Charming, loving, and mischievous. Pugs are companion dogs with distinctive wrinkled faces. They're apartment-friendly with moderate exercise needs, but prone to breathing issues due to their flat faces and can struggle in hot weather."},
-    {"id": 9, "name": "Border Collie", "description": "Intelligent, energetic, and alert. Border Collies are herding dogs known for their problem-solving abilities. Considered the smartest dog breed, they require intense mental and physical stimulation and excel in agility competitions."},
-    {"id": 10, "name": "Shih Tzu", "description": "Affectionate, playful, and outgoing. Shih Tzus are companion dogs with long, flowing coats. Bred as palace companions in China, they're excellent lap dogs who enjoy short walks but require daily grooming to maintain their luxurious coats."},
-    {"id": 11, "name": "Dachshund", "description": "Clever, stubborn, and curious. Dachshunds have elongated bodies and short legs designed for hunting badgers. Available in smooth, wirehaired, and longhaired varieties, they're bold but can develop back problems without proper care."},
-    {"id": 12, "name": "Chihuahua", "description": "Charming, graceful, and sassy. Chihuahuas are the smallest dog breed but have enormous personalities. They form strong bonds with one person, are highly portable, and can live up to 20 years despite being somewhat fragile physically."},
-    {"id": 13, "name": "Boxer", "description": "Fun-loving, bright, and active. Boxers are playful and protective medium-sized dogs. Patient with children but energetic enough for vigorous play, they maintain puppy-like behavior well into adulthood and have distinctive expressive faces."},
-    {"id": 14, "name": "Australian Shepherd", "description": "Intelligent, work-oriented, and exuberant. Australian Shepherds excel in herding and have stunning multicolored coats. They require extensive exercise and mental challenges, often displaying strong herding instincts even with family members."},
-    {"id": 15, "name": "Great Dane", "description": "Friendly, patient, and dependable. Great Danes are gentle giants with elegant appearance. Despite their massive size, they're good apartment dogs due to their calm indoor nature, though they need room to stretch and regular moderate exercise."}
+    {"id": 1, "name": "Hitam", "traits": "kiul", "age": "4 bulan", "gender": "cewek", 
+     "description": "Hai, aku HITAM. Aku anjing yang suka tidur. Sebenarnya, aku sudah memiliki tuan yang merupakan bule Australia. Namun, saat ini ia sedang pulang kampung ke daerahnya. Sehingga aku dititipkan disini, karena ia tidak bisa membawa ku ikut bersamanya. Aku merasa bosan & kesepian disini. Tidak ada teman teman yang mengajak ku untuk bermain. Biasanya, aku selalu ditemani oleh tuanku dan selalu diajak bermain olehnya. Aku sangat merindukan tuanku. Apakah kamu mau untuk mengganti peran tuanku sementara waktu?"},
+    
+    {"id": 2, "name": "Opi", "traits": "ketek", "age": "4 bulan", "gender": "cewe", 
+     "description": "Asli sini"},
+    
+    {"id": 3, "name": "Anonim", "traits": "ketek", "age": "3.5 bulan", "gender": "cowok", 
+     "description": "Aku dulu punya rumah. Ada tangan hangat yang mengelusku, suara lembut yang memanggil namaku. Tapi suatu hari, kami naik mobil, lalu mereka pergi tanpa kembali. Aku menunggu. Lama. Lapar. Dingin. Tak ada lagi panggilan itu. Aku tidur di jalanan, hujan turun. Tubuhku gemetar. Banyak orang yang melihatku, namun tak ada seorangpun yang memperhatikanku. Seolah olah, aku sama sekali tidak ada di dunia ini. Lalu seseorang datang, wanita dengan payung merah dan tatapan sedih. Dia membungkusku, membawaku pergi. Aku tak punya tenaga untuk takut. Di tempat baru, aku diperhatikan, dan diberi makan. Aku masih ingat rasa ditinggalkan. Tapi sekarang, aku juga tahu rasa diselamatkan. Dan aku sedang belajar percaya lagi."},
+    
+    {"id": 4, "name": "Anonim", "traits": "ketek", "age": "3.5 bulan", "gender": "cewe", 
+     "description": "Aku awalnya dirawat oleh sebuah keluarga. Namun, entah kenapa tiba tiba mereka membuangku begitu saja. Aku ditinggalkan di sekitar jalan Pura Batur menuju Pura Besakih. Aku kira aku hanya ditinggalkan sebentar saja, jadi aku tetap menunggu dan berharap mereka akan kembali menjemputku secepatnya. Namun… aku salah. Mereka benar benar meninggalkan ku, sendirian, sepi, dan gelap. Beberapa hari berlalu, kondisi ku sangat menyedihkan. Badan penuh kotoran, bulu yang mulai rontok, dan tulang yang terlihat mencetak badan saking kurusnya aku. Akhirnya aku memutuskan untuk menyerah, aku sudah sangat menanti nanti ajal untuk menjemputku. Tepat sebelum ajal mendatangiku, aku ditolong oleh sebuah keluarga yang akan beribadah ke Pura Besakih. Tatapannya begitu mengasihiku ketika melihat kondisiku yang begitu mengenaskan. Aku pun di rawat oleh keluarga itu, namun mereka tidak bisa merawatku secara terus menerus karena kucing yang mereka pelihara selalu saja mencari masalah pada ku. Akhirnya aku pun dibawa menuju tempat penampungan. Apakah kalian tidak tertarik untuk merawatku?"},
+    
+    {"id": 5, "name": "Anonim", "traits": "paksa", "age": "4 bulan", "gender": "cewe", 
+     "description": ""},
+    
+    {"id": 6, "name": "Putih", "traits": "paksa", "age": "3 bulan", "gender": "cowo", 
+     "description": "Hai, namaku Putih. Aku diberi nama Putih ketika aku sampai di tempat ini. Dulu, aku dirawat oleh seorang anak kecil yang juga menjadi sahabatku. Ia selalu mengajakku bermain, memandikan ku, dan selalu memberikan ku makanan. Namun, tiba tiba kami kedatangan seekor kucing kecil di rumah kami. Awalnya, tidak ada perubahan yang terjadi pada kehidupan kami. Tetapi seiring berjalan nya waktu, sahabatku tidak lagi pernah bermain denganku. Dia selalu bermain dengan kucing yang baru ia pelihara. Sedih, hatiku terasa sakit ketika sahabatku tersenyum lebih riang saat ia bermain dengan kucing itu daripada aku. Perlahan, aku mulai tersingkirkan dari dunia mereka berdua. Aku tidak pernah diajak bermain lagi. Buluku mulai terlihat kotor, karena aku tidak pernah dimandikan lagi. Pada akhirnya, mereka membuang ku karena aku dianggap tidak berguna, membawa penyakit dan hanya menghabiskan makanan. Aku pun dibawa ke tempat penampungan. Disini, aku dirawat dengan baik. Aku diberi makan & dimandikan hingga buluku terlihat putih bersih kembali."},
+    
+    {"id": 7, "name": "Coklat", "traits": "kiull", "age": "3 bulan", "gender": "cewe", 
+     "description": "Aku…dibuang oleh keluarga yang merawatku. Mereka sering berpergian keluar kota, jadi mereka membutuhkan anjing yang dapat menjaga rumah mereka selama mereka berpergian. Aku dibeli oleh mereka beberapa hari setelah aku lahir. Aku dirawat dengan sangat baik, dipanggil \"Pemberani\", dan sering diajak bermain. Beberapa bulan kemudian, mereka menemukan fakta bahwa aku adalah anjing betina. Semenjak saat itu, perilaku mereka berubah 180°. Mereka sama sekali tidak memperdulikan keberadaanku. Mereka tidak pernah memanggilku dan tidak pernah mengajak ku bermain lagi. Mereka mengira anjing betina tidak bisa menjaga rumah. Beberapa hari kemudian, mereka membawa anjing baru ke rumah. Hati ku terasa sakit, mengetahui posisiku sudah digantikan hanya karena jenis kelaminku. Aku pun dibuang begitu saja ke pinggir jalan. Beruntungnya beberapa jam aku berjalan dari tempatku dibuang, aku ditemukan oleh seorang pemilik penampungan. Dan begitulah kisahku hingga bisa berada di tempat ini"},
+    
+    {"id": 8, "name": "Anonim", "traits": "paksa", "age": "2.5 bulan", "gender": "cewe", 
+     "description": "rescue"},
+    
+    {"id": 9, "name": "Anonim", "traits": "kiul", "age": "7 bulan", "gender": "cowo", 
+     "description": "Tuanku…meninggalkanku… Ups, bercanda. Tapi tuanku benar benar meninggalkanku untuk sementara waktu. Ia merupakan bule Australia yang dulu berlibur di bali, namun sekarang dia sudah kembali ke negara asalnya. Tuanku tidak tega meninggalkanku begitu saja, jadi ia menitipkan ku di tempat ini. Aku sangat merindukan tuanku. Biasanya tuanku mengajakku untuk berkeliling"},
+    
+    {"id": 10, "name": "Molly", "traits": "jaya", "age": "8 bulan", "gender": "cewe", 
+     "description": "Dulu, aku kecil dan lucu. Mereka memelukku setiap hari, memanggilku \"anak pintar\", memberiku bantal empuk, mainan, dan pelukan hangat. Aku sangat mencintai mereka. Aku selalu mengibas ekor setiap kali mereka pulang. Tapi tubuhku tumbuh. Aku tak bisa lagi duduk di pangkuan. Mereka mulai marah saat aku merusak barang atau menggonggong terlalu keras. Aku mencoba menjadi anak baik, sungguh. Hari itu, mereka mengajakku naik mobil. Aku senang, kupikir kami akan bermain. Tapi mobil berhenti di tempat asing. Mereka menyuruhku turun, lalu pergi. Aku berlari mengejar, menggonggong sekuatku, tapi mereka tak kembali. Sekarang aku duduk sendiri, menunggu. Aku lapar. Dingin. Tapi yang paling menyakitkan… aku masih menunggu mereka, karena aku masih mencintai mereka. Aku menunggu di tempat itu. Sendiri, lapar, basah. Tapi aku tetap berharap mereka kembali. Sampai suatu hari, seorang wanita menemukanku. Tangannya lembut, suaranya hangat. Aku ikut saja saat dia mengangkatku. Kini aku di penampungan. Ada makanan, tempat tidur, dan kadang belaian hangat. Rasanya... sedikit seperti dicintai lagi. Bukan rumahku yang dulu. Tapi mungkin, ini awal dari rumah yang baru. Aku masih menunggu. Tapi kali ini, dengan sedikit harapan. Aku sama sekali tidak mengingat namaku. Apakah kamu ingin memberi nama baru padaku?"},
+    
+    {"id": 11, "name": "Anonim", "traits": "kiul", "age": "3.5 bulan", "gender": "cewe", 
+     "description": "rescue di jalanan"},
+    
+    {"id": 12, "name": "Anonim", "traits": "jaya", "age": "4 bulan", "gender": "cewe", 
+     "description": "rescue di jalanan"}
 ]
 
 # Create a DataFrame for easier handling
 df = pd.DataFrame(dog_data)
+
+# Add combined fields for sifat (traits), umur (age), and gender
+df['combined_description'] = df.apply(lambda row: f"{row['name']} {row['traits']} {row['age']} {row['gender']} {row['description']}", axis=1)
 
 # More comprehensive text preprocessing function
 def preprocess_text(text):
     # Convert to lowercase
     text = text.lower()
     # Remove special characters but keep spaces
-    text = re.sub(r'[^a-zA-Z\s]', '', text)
+    text = re.sub(r'[^a-zA-Z0-9\s]', '', text)
     # Tokenize
     tokens = nltk.word_tokenize(text)
     # Remove stopwords - but keep some important descriptive words
     stop_words = set(stopwords.words('english'))
     # Remove these words from stopwords as they might be important for dog descriptions
-    important_words = {'small', 'large', 'big', 'tiny', 'active', 'calm', 'quiet', 'loud', 'not', 'no', 'good', 'bad'}
+    important_words = {'suka', 'bermain', 'tidur', 'sakit', 'bosan', 'kesepian', 'dibuang', 'lucu', 'kecil'}
     for word in important_words:
         if word in stop_words:
             stop_words.remove(word)
@@ -67,24 +90,20 @@ def preprocess_text(text):
     return ' '.join(tokens)
 
 # Apply preprocessing to the descriptions
-df['processed_description'] = df['description'].apply(preprocess_text)
-
-# Create a combined field with name and description for better search results
-# Give more weight to the breed name by repeating it
-df['combined_text'] = df['name'] + ' ' + df['name'] + ' ' + df['processed_description']
+df['processed_description'] = df['combined_description'].apply(preprocess_text)
 
 # Create TF-IDF vectorizer for more accurate text matching
 tfidf_vectorizer = TfidfVectorizer(max_features=1000)
-tfidf_matrix = tfidf_vectorizer.fit_transform(df['combined_text'])
+tfidf_matrix = tfidf_vectorizer.fit_transform(df['processed_description'])
 
 # Tokenize the text for deep learning model
 MAX_NUM_WORDS = 10000
-MAX_SEQUENCE_LENGTH = 150  # Increased for longer descriptions
+MAX_SEQUENCE_LENGTH = 200  # Increased for longer descriptions
 EMBEDDING_DIM = 128
 
 tokenizer = Tokenizer(num_words=MAX_NUM_WORDS)
-tokenizer.fit_on_texts(df['combined_text'])
-sequences = tokenizer.texts_to_sequences(df['combined_text'])
+tokenizer.fit_on_texts(df['processed_description'])
+sequences = tokenizer.texts_to_sequences(df['processed_description'])
 word_index = tokenizer.word_index
 padded_sequences = pad_sequences(sequences, maxlen=MAX_SEQUENCE_LENGTH)
 
@@ -123,33 +142,41 @@ embedding_model = build_improved_embedding_model(word_index, EMBEDDING_DIM, MAX_
 # Generate embeddings for all dogs in the database
 dog_embeddings = embedding_model.predict(padded_sequences)
 
-# Create an expanded synonym dictionary to improve matching
+# Create an expanded synonym dictionary to improve matching - adjusted for Indonesian
 synonyms = {
-    'friendly': ['sociable', 'amiable', 'kind', 'nice', 'warm', 'approachable', 'welcoming', 'cordial'],
-    'intelligent': ['smart', 'clever', 'bright', 'wise', 'brilliant', 'sharp', 'brainy', 'astute'],
-    'energetic': ['active', 'lively', 'spirited', 'vigorous', 'dynamic', 'peppy', 'enthusiastic', 'hyperactive'],
-    'loyal': ['faithful', 'devoted', 'dedicated', 'committed', 'true', 'steadfast', 'reliable', 'trustworthy'],
-    'playful': ['fun', 'jolly', 'cheerful', 'merry', 'joyful', 'frolicsome', 'exuberant', 'carefree'],
-    'gentle': ['mild', 'tender', 'kind', 'soft', 'calm', 'docile', 'peaceful', 'delicate'],
-    'protective': ['defensive', 'guarding', 'watchful', 'vigilant', 'careful', 'guardian', 'territorial', 'shielding'],
-    'small': ['tiny', 'little', 'compact', 'miniature', 'petite', 'diminutive', 'teacup', 'pocket-sized'],
-    'large': ['big', 'huge', 'gigantic', 'enormous', 'sizable', 'substantial', 'massive', 'giant'],
-    'family': ['household', 'home', 'children', 'kids', 'domestic', 'relatives', 'parents', 'family-friendly'],
-    'apartment': ['flat', 'condo', 'condominium', 'small space', 'living space', 'indoor', 'urban'],
-    'outdoor': ['outside', 'active', 'adventurous', 'nature', 'hiking', 'exercise', 'walking', 'running'],
-    'quiet': ['calm', 'silent', 'peaceful', 'tranquil', 'serene', 'composed', 'gentle', 'relaxed'],
-    'vocal': ['loud', 'noisy', 'talkative', 'barking', 'howling', 'yappy', 'chatty', 'communicative'],
-    'grooming': ['brushing', 'haircut', 'maintenance', 'coat care', 'shedding', 'fur', 'hair', 'clipping'],
-    'training': ['obedience', 'discipline', 'teaching', 'learning', 'commands', 'instruction', 'education', 'skilled'],
-    'hunting': ['prey', 'tracking', 'scenting', 'chasing', 'sporting', 'retrieving', 'catching', 'field work'],
-    'herding': ['gathering', 'controlling', 'rounding up', 'shepherding', 'working', 'sheep', 'cattle', 'livestock'],
-    'guard': ['protect', 'watch', 'security', 'defender', 'patrol', 'vigilant', 'alert', 'sentry'],
-    'companion': ['friend', 'buddy', 'pal', 'pet', 'partner', 'lap dog', 'emotional support', 'therapy'],
-    'child': ['kid', 'toddler', 'baby', 'children', 'young', 'family', 'gentle with', 'tolerant'],
-    'athletic': ['sporty', 'agile', 'fit', 'active', 'nimble', 'energetic', 'physical', 'coordinated'],
-    'healthy': ['robust', 'strong', 'hearty', 'well', 'fit', 'sound', 'sturdy', 'disease-resistant'],
-    'lazy': ['relaxed', 'laid-back', 'casual', 'easy-going', 'chill', 'calm', 'low-energy', 'sedentary'],
-    'hypoallergenic': ['allergy-friendly', 'non-shedding', 'low-dander', 'allergy', 'sensitive', 'sneeze-free']
+    'bermain': ['main', 'senang', 'gembira', 'ceria', 'aktif'],
+    'cerdas': ['pintar', 'pandai', 'cakap', 'cepat belajar', 'terlatih'],
+    'energik': ['aktif', 'lincah', 'semangat', 'bertenaga', 'gesit'],
+    'setia': ['loyal', 'patuh', 'taat', 'tunduk', 'nurut'],
+    'ceria': ['senang', 'gembira', 'riang', 'bahagia', 'antusias'],
+    'lembut': ['halus', 'penyayang', 'tenang', 'damai', 'kalem'],
+    'pelindung': ['penjaga', 'pengawas', 'waspada', 'protektif', 'teritorial'],
+    'kecil': ['mungil', 'minis', 'kecil', 'kecil', 'imut'],
+    'besar': ['bongsor', 'tinggi', 'raksasa', 'gagah', 'besar'],
+    'keluarga': ['rumah', 'anak', 'orangtua', 'domestik', 'keluarga'],
+    'apartemen': ['flat', 'kondominium', 'rumah kecil', 'ruangan', 'indoor'],
+    'outdoor': ['luar', 'aktif', 'petualang', 'alam', 'jalan-jalan'],
+    'tenang': ['kalem', 'diam', 'damai', 'santai', 'tenang'],
+    'berisik': ['ribut', 'bising', 'menggonggong', 'menggonggong', 'cerewet'],
+    'perawatan': ['sikat', 'potong rambut', 'mandi', 'bulu', 'rambut'],
+    'latihan': ['patuh', 'disiplin', 'belajar', 'perintah', 'instruksi'],
+    'berburu': ['mangsa', 'melacak', 'memburu', 'mengejar', 'menangkap'],
+    'penggembala': ['mengumpulkan', 'mengontrol', 'menggiring', 'bekerja', 'ternak'],
+    'penjaga': ['melindungi', 'mengawasi', 'keamanan', 'waspada', 'patroli'],
+    'teman': ['sahabat', 'kawan', 'teman', 'partner', 'pendamping'],
+    'anak': ['kecil', 'anak', 'balita', 'keluarga', 'lembut'],
+    'atletis': ['sportif', 'aktif', 'bugar', 'lincah', 'fisik'],
+    'sehat': ['kuat', 'bugar', 'sehat', 'prima', 'tangguh'],
+    'malas': ['santai', 'rileks', 'tenang', 'kalem', 'santai'],
+    'dibuang': ['ditinggalkan', 'ditelantarkan', 'diusir', 'terlantar', 'sendirian'],
+    'rescue': ['diselamatkan', 'ditolong', 'bantuan', 'penyelamatan', 'terselamatkan'],
+    'sedih': ['sedih', 'galau', 'kesepian', 'menyedihkan', 'merana'],
+    'kiul': ['kalem', 'tenang', 'pendiam', 'pasif', 'santai'],
+    'ketek': ['lincah', 'aktif', 'energik', 'semangat', 'ceria'],
+    'paksa': ['keras', 'tegas', 'kuat', 'dominan', 'tangguh'],
+    'jaya': ['pemenang', 'sukses', 'hebat', 'unggul', 'terbaik'],
+    'cewe': ['betina', 'perempuan', 'wanita'],
+    'cowo': ['jantan', 'pria', 'laki']
 }
 
 # Function to expand search terms with synonyms - improved to handle multi-word terms
@@ -211,13 +238,16 @@ def search_dogs(query, top_n=3):
             
             # Create explanation based on matching terms
             if matching_terms:
-                match_explanation = f"Matched on: {', '.join(matching_terms)}"
+                match_explanation = f"Cocok dengan: {', '.join(matching_terms)}"
             else:
-                match_explanation = "Matched based on related traits"
+                match_explanation = "Cocok berdasarkan sifat yang berhubungan"
             
             results.append({
                 'id': df.iloc[idx]['id'],
                 'name': df.iloc[idx]['name'],
+                'traits': df.iloc[idx]['traits'],
+                'age': df.iloc[idx]['age'],
+                'gender': df.iloc[idx]['gender'],
                 'description': df.iloc[idx]['description'],
                 'similarity_score': combined_similarities[idx],
                 'match_explanation': match_explanation
@@ -228,15 +258,15 @@ def search_dogs(query, top_n=3):
 # Example searches to test the system
 def test_search_examples():
     test_queries = [
-        "anjing keluarga yang ramah",
-        "anjing cerdas untuk bekerja",
-        "anjing kecil untuk apartemen",
-        "anjing energik untuk aktivitas luar ruangan",
-        "cocok untuk anak-anak",
-        "anjing dengan perawatan bulu minimal",
-        "anjing pemburu",
-        "anjing yang tidak banyak menggonggong",
-        "anjing besar tapi tenang"
+        "anjing yang suka tidur",
+        "anjing yang pernah dibuang",
+        "anjing betina muda",
+        "anjing yang tenang dan kalem",
+        "anjing yang cocok untuk keluarga",
+        "anjing dengan sifat kiul",
+        "anjing dengan cerita sedih",
+        "anjing yang perlu diselamatkan",
+        "anjing yang ditinggal pemiliknya"
     ]
     
     for query in test_queries:
@@ -247,8 +277,8 @@ def test_search_examples():
             print(results[0]["message"])
         else:
             for i, result in enumerate(results):
-                print(f"{i+1}. {result['name']} (Skor: {result['similarity_score']:.4f})")
-                print(f"   {result['description']}")
+                print(f"{i+1}. {result['name']} ({result['traits']}, {result['age']}, {result['gender']}) - Skor: {result['similarity_score']:.4f}")
+                print(f"   {result['description'][:100]}...")
                 print(f"   {result['match_explanation']}")
 
 # Run the test searches
@@ -258,7 +288,7 @@ test_search_examples()
 def interactive_search():
     print("\n===== PENCARIAN ANJING YANG SESUAI =====")
     print("Masukkan kriteria anjing yang Anda inginkan.")
-    print("Contoh: 'anjing keluarga yang tenang' atau 'anjing kecil untuk apartemen'")
+    print("Contoh: 'anjing yang tenang dan suka tidur' atau 'anjing muda yang butuh keluarga baru'")
     print("Ketik 'keluar' untuk mengakhiri program.\n")
     
     while True:
@@ -276,8 +306,9 @@ def interactive_search():
             print(f"\nHasil pencarian untuk '{query}':")
             print("-" * 50)
             for i, result in enumerate(results):
-                print(f"{i+1}. {result['name']} (Skor: {result['similarity_score']:.4f})")
-                print(f"   {result['description']}")
+                print(f"{i+1}. {result['name']} - {result['traits']} - {result['age']} - {result['gender']}")
+                print(f"   Skor: {result['similarity_score']:.4f}")
+                print(f"   Deskripsi: {result['description'][:150]}...")
                 print(f"   {result['match_explanation']}")
                 print("-" * 50)
 
