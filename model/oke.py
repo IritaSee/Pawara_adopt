@@ -23,42 +23,43 @@ except LookupError:
 
 # Create dog data from the provided descriptions
 dog_data = [
-    {"id": 1, "name": "Hitam", "traits": "kiul", "age": "4 bulan", "gender": "cewek", 
+    {"id": 1, "name": "Hitam", "traits": "kiul", "age": 4, "gender": "cewek", 
      "description": "Hai, aku HITAM. Aku anjing yang suka tidur. Sebenarnya, aku sudah memiliki tuan yang merupakan bule Australia. Namun, saat ini ia sedang pulang kampung ke daerahnya. Sehingga aku dititipkan disini, karena ia tidak bisa membawa ku ikut bersamanya. Aku merasa bosan & kesepian disini. Tidak ada teman teman yang mengajak ku untuk bermain. Biasanya, aku selalu ditemani oleh tuanku dan selalu diajak bermain olehnya. Aku sangat merindukan tuanku. Apakah kamu mau untuk mengganti peran tuanku sementara waktu?"},
     
-    {"id": 2, "name": "Opi", "traits": "ketek", "age": "4 bulan", "gender": "cewe", 
-     "description": "Asli sini"},
+    {"id": 2, "name": "Opi", "traits": "ketek", "age": 4 , "gender": "cewe", 
+     "description": "Namaku Opi, si kecil lincah yang lahir langsung di animal shelter ini. Ibuku diselamatkan saat sedang hamil besar—badannya kurus, tapi matanya penuh harapan. Beberapa hari setelah ia datang, aku dan saudara-saudaraku lahir di tempat yang aman dan hangat ini. Dari pertama kali membuka mata, aku langsung penasaran dengan dunia. Kata para penjaga, sejak kecil aku sudah paling aktif di antara yang lain. Aku suka menggigit ujung selimut, mengejar bayangan, dan tak pernah bisa diam. “Si ketek satu ini pasti calon pelari maraton,” kata salah satu kakak penjaga sambil tertawa. Aku memang begitu—selalu semangat, selalu ingin tahu, dan selalu bikin suasana jadi ramai. Aku lahir di shelter ini, tapi aku yakin dunia di luar sana luas dan seru. Mungkin, kamu adalah bagian dari dunia itu."},
     
-    {"id": 3, "name": "Anonim", "traits": "ketek", "age": "3.5 bulan", "gender": "cowok", 
+    {"id": 3, "name": "Elu", "traits": "ketek", "age": 3.5 , "gender": "cowok", 
      "description": "Aku dulu punya rumah. Ada tangan hangat yang mengelusku, suara lembut yang memanggil namaku. Tapi suatu hari, kami naik mobil, lalu mereka pergi tanpa kembali. Aku menunggu. Lama. Lapar. Dingin. Tak ada lagi panggilan itu. Aku tidur di jalanan, hujan turun. Tubuhku gemetar. Banyak orang yang melihatku, namun tak ada seorangpun yang memperhatikanku. Seolah olah, aku sama sekali tidak ada di dunia ini. Lalu seseorang datang, wanita dengan payung merah dan tatapan sedih. Dia membungkusku, membawaku pergi. Aku tak punya tenaga untuk takut. Di tempat baru, aku diperhatikan, dan diberi makan. Aku masih ingat rasa ditinggalkan. Tapi sekarang, aku juga tahu rasa diselamatkan. Dan aku sedang belajar percaya lagi."},
     
-    {"id": 4, "name": "Anonim", "traits": "ketek", "age": "3.5 bulan", "gender": "cewe", 
+    {"id": 4, "name": "Lara", "traits": "ketek", "age": 3.5 , "gender": "cewe", 
      "description": "Aku awalnya dirawat oleh sebuah keluarga. Namun, entah kenapa tiba tiba mereka membuangku begitu saja. Aku ditinggalkan di sekitar jalan Pura Batur menuju Pura Besakih. Aku kira aku hanya ditinggalkan sebentar saja, jadi aku tetap menunggu dan berharap mereka akan kembali menjemputku secepatnya. Namun… aku salah. Mereka benar benar meninggalkan ku, sendirian, sepi, dan gelap. Beberapa hari berlalu, kondisi ku sangat menyedihkan. Badan penuh kotoran, bulu yang mulai rontok, dan tulang yang terlihat mencetak badan saking kurusnya aku. Akhirnya aku memutuskan untuk menyerah, aku sudah sangat menanti nanti ajal untuk menjemputku. Tepat sebelum ajal mendatangiku, aku ditolong oleh sebuah keluarga yang akan beribadah ke Pura Besakih. Tatapannya begitu mengasihiku ketika melihat kondisiku yang begitu mengenaskan. Aku pun di rawat oleh keluarga itu, namun mereka tidak bisa merawatku secara terus menerus karena kucing yang mereka pelihara selalu saja mencari masalah pada ku. Akhirnya aku pun dibawa menuju tempat penampungan. Apakah kalian tidak tertarik untuk merawatku?"},
     
-    {"id": 5, "name": "Anonim", "traits": "paksa", "age": "4 bulan", "gender": "cewe", 
-     "description": ""},
+    {"id": 5, "name": "Tara", "traits": "paksa", "age": 4 , "gender": "cewe", 
+     "description": "Aku diselamatkan dari tempat yang sangat keras. Sejak kecil, aku sudah harus belajar untuk menjaga diriku sendiri. Aku kuat, aku tangguh. Aku tidak takut akan suara keras, bahkan suara petir pun tidak bisa membuatku gemetar. Saat ditemukan, aku sedang menggonggong keras, menjaga seekor anak anjing yang lebih kecil dari gangguan jalanan. Mereka menyebutku pemberani. Kini aku di sini, menunggu seseorang yang bisa melihat keberanianku bukan sebagai ancaman, tapi sebagai kekuatan."},
     
-    {"id": 6, "name": "Putih", "traits": "paksa", "age": "3 bulan", "gender": "cowo", 
+    {"id": 6, "name": "Putih", "traits": "paksa", "age": 3 , "gender": "cowo", 
      "description": "Hai, namaku Putih. Aku diberi nama Putih ketika aku sampai di tempat ini. Dulu, aku dirawat oleh seorang anak kecil yang juga menjadi sahabatku. Ia selalu mengajakku bermain, memandikan ku, dan selalu memberikan ku makanan. Namun, tiba tiba kami kedatangan seekor kucing kecil di rumah kami. Awalnya, tidak ada perubahan yang terjadi pada kehidupan kami. Tetapi seiring berjalan nya waktu, sahabatku tidak lagi pernah bermain denganku. Dia selalu bermain dengan kucing yang baru ia pelihara. Sedih, hatiku terasa sakit ketika sahabatku tersenyum lebih riang saat ia bermain dengan kucing itu daripada aku. Perlahan, aku mulai tersingkirkan dari dunia mereka berdua. Aku tidak pernah diajak bermain lagi. Buluku mulai terlihat kotor, karena aku tidak pernah dimandikan lagi. Pada akhirnya, mereka membuang ku karena aku dianggap tidak berguna, membawa penyakit dan hanya menghabiskan makanan. Aku pun dibawa ke tempat penampungan. Disini, aku dirawat dengan baik. Aku diberi makan & dimandikan hingga buluku terlihat putih bersih kembali."},
     
-    {"id": 7, "name": "Coklat", "traits": "kiull", "age": "3 bulan", "gender": "cewe", 
+    {"id": 7, "name": "Coklat", "traits": "kiull", "age": 3 , "gender": "cewe", 
      "description": "Aku…dibuang oleh keluarga yang merawatku. Mereka sering berpergian keluar kota, jadi mereka membutuhkan anjing yang dapat menjaga rumah mereka selama mereka berpergian. Aku dibeli oleh mereka beberapa hari setelah aku lahir. Aku dirawat dengan sangat baik, dipanggil \"Pemberani\", dan sering diajak bermain. Beberapa bulan kemudian, mereka menemukan fakta bahwa aku adalah anjing betina. Semenjak saat itu, perilaku mereka berubah 180°. Mereka sama sekali tidak memperdulikan keberadaanku. Mereka tidak pernah memanggilku dan tidak pernah mengajak ku bermain lagi. Mereka mengira anjing betina tidak bisa menjaga rumah. Beberapa hari kemudian, mereka membawa anjing baru ke rumah. Hati ku terasa sakit, mengetahui posisiku sudah digantikan hanya karena jenis kelaminku. Aku pun dibuang begitu saja ke pinggir jalan. Beruntungnya beberapa jam aku berjalan dari tempatku dibuang, aku ditemukan oleh seorang pemilik penampungan. Dan begitulah kisahku hingga bisa berada di tempat ini"},
     
-    {"id": 8, "name": "Anonim", "traits": "paksa", "age": "2.5 bulan", "gender": "cewe", 
-     "description": "rescue"},
+    {"id": 8, "name": "Mika", "traits": "paksa", "age": 2.5 , "gender": "cewe", 
+     "description": "Aku diselamatkan dari jalanan yang penuh bahaya. Saat ditemukan, tubuhku dipenuhi luka dan kotoran. Aku sempat menggigit orang yang mencoba mendekat karena takut. Tapi mereka tidak menyerah. Mereka sabar, memberiku makan, dan akhirnya aku percaya. Aku bukan galak, aku hanya terbiasa bertahan. Tapi kalau kamu sabar, kamu akan melihat sisi lembutku yang tersembunyi."},
     
-    {"id": 9, "name": "Anonim", "traits": "kiul", "age": "7 bulan", "gender": "cowo", 
-     "description": "Tuanku…meninggalkanku… Ups, bercanda. Tapi tuanku benar benar meninggalkanku untuk sementara waktu. Ia merupakan bule Australia yang dulu berlibur di bali, namun sekarang dia sudah kembali ke negara asalnya. Tuanku tidak tega meninggalkanku begitu saja, jadi ia menitipkan ku di tempat ini. Aku sangat merindukan tuanku. Biasanya tuanku mengajakku untuk berkeliling"},
+    {"id": 9, "name": "Jojo", "traits": "kiul", "age": 7 , "gender": "cowo", 
+     "description": "Tuanku…meninggalkanku… Ups, bercanda. Tapi tuanku benar benar meninggalkanku untuk sementara waktu. Ia merupakan bule Australia yang dulu berlibur di Bali, namun sekarang dia sudah kembali ke negara asalnya. Tuanku tidak tega meninggalkanku begitu saja, jadi ia menitipkan ku di tempat ini. Aku sangat merindukan tuanku. Biasanya tuanku mengajakku untuk berkeliling"},
     
-    {"id": 10, "name": "Molly", "traits": "jaya", "age": "8 bulan", "gender": "cewe", 
+    {"id": 10, "name": "Molly", "traits": "jaya", "age": 8 , "gender": "cewe", 
      "description": "Dulu, aku kecil dan lucu. Mereka memelukku setiap hari, memanggilku \"anak pintar\", memberiku bantal empuk, mainan, dan pelukan hangat. Aku sangat mencintai mereka. Aku selalu mengibas ekor setiap kali mereka pulang. Tapi tubuhku tumbuh. Aku tak bisa lagi duduk di pangkuan. Mereka mulai marah saat aku merusak barang atau menggonggong terlalu keras. Aku mencoba menjadi anak baik, sungguh. Hari itu, mereka mengajakku naik mobil. Aku senang, kupikir kami akan bermain. Tapi mobil berhenti di tempat asing. Mereka menyuruhku turun, lalu pergi. Aku berlari mengejar, menggonggong sekuatku, tapi mereka tak kembali. Sekarang aku duduk sendiri, menunggu. Aku lapar. Dingin. Tapi yang paling menyakitkan… aku masih menunggu mereka, karena aku masih mencintai mereka. Aku menunggu di tempat itu. Sendiri, lapar, basah. Tapi aku tetap berharap mereka kembali. Sampai suatu hari, seorang wanita menemukanku. Tangannya lembut, suaranya hangat. Aku ikut saja saat dia mengangkatku. Kini aku di penampungan. Ada makanan, tempat tidur, dan kadang belaian hangat. Rasanya... sedikit seperti dicintai lagi. Bukan rumahku yang dulu. Tapi mungkin, ini awal dari rumah yang baru. Aku masih menunggu. Tapi kali ini, dengan sedikit harapan. Aku sama sekali tidak mengingat namaku. Apakah kamu ingin memberi nama baru padaku?"},
     
-    {"id": 11, "name": "Anonim", "traits": "kiul", "age": "3.5 bulan", "gender": "cewe", 
-     "description": "rescue di jalanan"},
+    {"id": 11, "name": "Naya", "traits": "kiul", "age": 3.5 , "gender": "cewe", 
+     "description": "Aku diselamatkan di tengah hujan di sebuah gang sempit. Aku diam saja saat mereka menggendongku, karena aku terlalu lelah untuk melawan. Tapi sekarang aku mulai tersenyum lagi. Aku senang tidur di tempat hangat dan suka mendengarkan suara orang-orang di sekitarku. Aku kalem dan tidak rewel, cocok buat kamu yang suka ketenangan."},
     
-    {"id": 12, "name": "Anonim", "traits": "jaya", "age": "4 bulan", "gender": "cewe", 
-     "description": "rescue di jalanan"}
+    {"id": 12, "name": "Rika", "traits": "jaya", "age": 4 , "gender": "cewe", 
+     "description": "Aku ditemukan di jalan, kurus dan kotor, tapi dengan mata yang masih penuh semangat. Mereka bilang aku seperti pejuang kecil yang tidak mau menyerah. Aku punya semangat untuk hidup, dan aku belajar cepat. Sekarang aku sehat, lincah, dan siap untuk jadi bintang di rumah barumu. Aku adalah juara yang sedang menunggu panggungku sendiri."}
 ]
+
 
 # Create a DataFrame for easier handling
 df = pd.DataFrame(dog_data)
