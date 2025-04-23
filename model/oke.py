@@ -10,7 +10,9 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.models import Model
-from tensorflow.keras.layers import Input, Embedding, GlobalAveragePooling1D, Dense, Dropout, Concatenate
+from tensorflow.keras.layers import Input, Embedding, GlobalAveragePooling1D, Dense, Dropout
+from tensorflow.keras.models import load_model
+import os
 
 # Download necessary NLTK data
 try:
@@ -134,11 +136,17 @@ def build_improved_embedding_model(word_index, embedding_dim, max_seq_length):
     # Build and compile model
     model = Model(inputs=input_layer, outputs=output_layer)
     model.compile(loss='mse', optimizer='adam')
+    model.save('main_model.h5', save_format='h5')
+    print("Model saved as main_model.h5")
     
     return model
 
-# Create the model
-embedding_model = build_improved_embedding_model(word_index, EMBEDDING_DIM, MAX_SEQUENCE_LENGTH)
+# Create or load the model
+if os.path.exists('main_model.h5'):
+    embedding_model = load_model('main_model.h5')
+else:
+    embedding_model = build_improved_embedding_model(word_index, EMBEDDING_DIM, MAX_SEQUENCE_LENGTH)
+
 
 # Generate embeddings for all dogs in the database
 dog_embeddings = embedding_model.predict(padded_sequences)
