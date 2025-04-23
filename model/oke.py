@@ -81,9 +81,9 @@ def preprocess_text(text):
     stop_words = set(stopwords.words('english'))
     # Remove these words from stopwords as they might be important for dog descriptions
     important_words = {'suka', 'bermain', 'tidur', 'sakit', 'bosan', 'kesepian', 'dibuang', 'lucu', 'kecil'}
-    for word in important_words:
-        if word in stop_words:
-            stop_words.remove(word)
+    # for word in important_words:
+    #     if word in stop_words:
+    #         stop_words.remove(word)
     
     tokens = [word for word in tokens if word not in stop_words]
     # Lemmatize
@@ -315,7 +315,7 @@ def interactive_search():
             print(f"\nHasil pencarian untuk '{query}':")
             print("-" * 50)
             for i, result in enumerate(results):
-                print(f"{i+1}. {result['name']} - {result['traits']} - {result['age']} - {result['gender']}")
+                print(f"{i+1}. {result['name']} - {result['traits']} - {result['age']} bulan - {result['gender']}")
                 print(f"   Skor: {result['similarity_score']:.4f}")
                 print(f"   Deskripsi: {result['description'][:150]}...")
                 print(f"   {result['match_explanation']}")
